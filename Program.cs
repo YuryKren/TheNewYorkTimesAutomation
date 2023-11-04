@@ -11,7 +11,14 @@ namespace TheNewYorkTimesAutomation
 
             TNYTHomePage homePage = new(driver);
 
-            homePage.ClickAgreementOnCondition();
+            try 
+            {
+                homePage.ClickAgreementOnCondition();
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             bool testCaseLifestyleNews= homePage.CheckPage("Lifestyle");
             bool testCaseWorldNews = homePage.CheckPage("World");

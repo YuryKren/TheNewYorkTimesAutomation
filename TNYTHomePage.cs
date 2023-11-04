@@ -20,7 +20,14 @@ namespace TheNewYorkTimesAutomation
         public void ClickAgreementOnCondition() 
         {
             IWebElement agreePolicy = _driver.FindElement(By.XPath(BUTTON_TO_AGREE_WITH_CHANGES));
-            agreePolicy.Click();
+            if (agreePolicy.Displayed) 
+            {
+                agreePolicy.Click();
+            }
+            else 
+            {
+                throw new ArgumentException("There isn't check policy");
+            }
         }
 
         public bool CheckPage(string xPath)
