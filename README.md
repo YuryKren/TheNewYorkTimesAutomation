@@ -1,0 +1,2 @@
+# TheNewYorkTimesAutomation
+QAAuto training course
