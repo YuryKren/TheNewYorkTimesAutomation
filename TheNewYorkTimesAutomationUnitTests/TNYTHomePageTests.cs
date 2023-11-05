@@ -7,6 +7,14 @@ namespace TheNewYorkTimesAutomationUnitTests
     [TestClass]
     public class TNYTHomePageTests
     {
+        IWebDriver _driver;
+
+        [TestInitialize] 
+        public void Initialize() 
+        {
+            _driver = new ChromeDriver();
+        }
+
         [TestMethod]
 
         [DataRow("World")]
@@ -17,16 +25,15 @@ namespace TheNewYorkTimesAutomationUnitTests
 
         public void CheckingPerformanceOfNewsSelectionMenu(string item)
         {
-            IWebDriver driver = new ChromeDriver();
-
-            TNYTHomePage homePage = new(driver);
-
-            homePage.ClickAgreeWithOnConditions();
-
+            TNYTHomePage homePage = new(_driver);
             Assert.IsTrue(homePage.CheckPage(item));
-
-            driver.Close();
-
         }
+
+        [TestCleanup] 
+        public void Cleanup() 
+        {
+            _driver.Close();
+        }
+
     }
 }

@@ -36,6 +36,7 @@ namespace TheNewYorkTimesAutomation
 
         public bool CheckPage(string xPath)
         {
+            ClickAgreeWithOnConditions();
             string result = string.Format(MENU_ITEM_TEMPLATE, xPath);
             IWebElement webElement = _waiter.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(result))).First();
             webElement.Click();

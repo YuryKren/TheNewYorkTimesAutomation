@@ -7,7 +7,18 @@ namespace TheNewYorkTimesAutomation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
+            IWebDriver driver = new ChromeDriver();
+
+            TNYTSearchPage testPage = new(driver);
+
+            var result = testPage.GetSearchResults("Belarus");
+
+            foreach (var resultItem in result) 
+            {
+                Console.WriteLine(resultItem);
+            }
+
+            driver.Close();
         }
     }
 }
