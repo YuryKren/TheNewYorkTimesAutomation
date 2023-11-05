@@ -22,15 +22,15 @@ namespace TheNewYorkTimesAutomationUnitTests
         [DataRow("Belarus")]
         [DataRow("Italy")]
         [DataRow("Poland")]
-        [DataRow("Canada")]
+        [DataRow("Egypt")]
         
 
         public void CheckingSearchResultsTestPositive(string item)
         {
             TNYTSearchPage searchPage = new (_driver);
             var headlinesSearchResults = searchPage.GetSearchResults(item);
-            var сheckingPresenceOfRequestInContentOfResults = headlinesSearchResults.Where(x => x.Contains(item)).ToList();
-            Assert.IsTrue(headlinesSearchResults.Count()/2 <= сheckingPresenceOfRequestInContentOfResults.Count());
+            var сheckingPresenceOfRequestInContentOfResults = headlinesSearchResults?.Where(x => x.Contains(item)).ToList();
+            Assert.IsTrue(headlinesSearchResults?.Count()/2 <= сheckingPresenceOfRequestInContentOfResults?.Count());
         }
 
         [TestMethod]

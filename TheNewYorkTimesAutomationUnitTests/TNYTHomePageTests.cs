@@ -26,7 +26,7 @@ namespace TheNewYorkTimesAutomationUnitTests
         public void CheckingPerformanceOfNewsSelectionMenu(string item)
         {
             TNYTHomePage homePage = new(_driver);
-            Assert.IsTrue(homePage.CheckPage(item));
+            Assert.IsTrue(homePage.CheckPageLink(item));
         }
 
         [TestCleanup] 
